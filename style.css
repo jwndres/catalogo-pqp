@@ -127,5 +127,75 @@ header {
   }
 }
 
+
+.finalizar-pedido-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#finalizarPedido {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#finalizarPedido:hover {
+  background: #0056b3;
+}
+
+/* Formulario emergente */
+.form-popup {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  z-index: 999;
+}
+
+.form-contenido {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.form-contenido input {
+  width: 90%;
+  margin: 8px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.form-contenido button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#enviarPedido {
+  background: #28a745;
+  color: white;
+}
+
+#cancelar {
+  background: #dc3545;
+  color: white;
+  margin-left: 10px;
+}
+
 ;
 

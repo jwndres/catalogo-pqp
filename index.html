@@ -534,6 +534,123 @@
 
 
   </main>
+
+  <!-- Carrito de productos -->
+<div class="carrito-container">
+  <h3>🛒 Carrito de compras</h3>
+  <ul id="listaCarrito"></ul>
+  <p id="totalCarrito"><strong>Total: $0</strong></p>
+  <button id="finalizarPedido">Finalizar pedido ✅</button>
+</div>
+
+<!-- Formulario de datos del cliente -->
+<div id="formularioCliente" class="form-popup" style="display:none;">
+  <div class="form-contenido">
+    <h3>Datos del Cliente</h3>
+    <label>Nombre:</label>
+    <input type="text" id="nombreCliente" placeholder="Tu nombre" required>
+
+    <label>Teléfono:</label>
+    <input type="tel" id="telefonoCliente" placeholder="Tu número de celular" required>
+
+    <label>Dirección:</label>
+    <input type="text" id="direccionCliente" placeholder="Tu dirección" required>
+
+    <p id="totalPedidoTexto" style="font-weight:bold; margin-top:15px;"></p>
+
+    <button id="enviarPedido">Enviar pedido</button>
+    <button id="cancelar">Cancelar</button>
+  </div>
+</div>
+
+<script>
+  const botones = document.querySelectorAll('.btn');
+  const listaCarrito = document.getElementById('listaCarrito');
+  const totalCarrito = document.getElementById('totalCarrito');
+  const carrito = [];
+  let total = 0;
+
+  // Función para convertir texto de precio a número
+  function obtenerPrecio(precioTexto) {
+    return Number(precioTexto.replace(/[^0-9]/g, ''));
+  }
+
+  // Actualiza la vista del carrito
+  function actualizarCarrito() {
+    listaCarrito.innerHTML = '';
+    carrito.forEach((producto, index) => {
+      const li = document.createElement('li');
+      li.innerHTML = `${producto.titulo} - $${producto.precio.toLocaleString()} 
+        <button class="eliminar" data-index="${index}">❌</button>`;
+      listaCarrito.appendChild(li);
+    });
+    totalCarrito.innerHTML = `<strong>Total: $${total.toLocaleString()}</strong>`;
+
+    // Asignar eventos a los botones de eliminar
+    document.querySelectorAll('.eliminar').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const index = e.target.dataset.index;
+        total -= carrito[index].precio;
+        carrito.splice(index, 1);
+        actualizarCarrito();
+      });
+    });
+  }
+
+  // Agregar productos al carrito
+  botones.forEach(boton => {
+    boton.addEventListener('click', () => {
+      const card = boton.closest('.card');
+      const titulo = card.querySelector('.title').textContent;
+      const precioTexto = card.querySelector('.price').textContent;
+      const precio = obtenerPrecio(precioTexto);
+
+      carrito.push({ titulo, precio });
+      total += precio;
+      actualizarCarrito();
+    });
+  });
+
+  // Finalizar pedido
+  document.getElementById('finalizarPedido').addEventListener('click', () => {
+    if (carrito.length === 0) {
+      alert('Tu carrito está vacío 🛒');
+      return;
+    }
+    document.getElementById('totalPedidoTexto').textContent = `💰 Total del pedido: $${total.toLocaleString()}`;
+    document.getElementById('formularioCliente').style.display = 'block';
+  });
+
+  // Cancelar formulario
+  document.getElementById('cancelar').addEventListener('click', () => {
+    document.getElementById('formularioCliente').style.display = 'none';
+  });
+
+  // Enviar pedido por WhatsApp
+  document.getElementById('enviarPedido').addEventListener('click', () => {
+    const nombre = document.getElementById('nombreCliente').value.trim();
+    const telefono = document.getElementById('telefonoCliente').value.trim();
+    const direccion = document.getElementById('direccionCliente').value.trim();
+
+    if (!nombre || !telefono || !direccion) {
+      alert('Por favor completa todos los campos.');
+      return;
+    }
+
+    const listaProductos = carrito.map(p => `- ${p.titulo} ($${p.precio.toLocaleString()})`).join('%0A');
+    const mensaje = `📦 *Nuevo pedido PQP*%0A
+👤 Nombre: ${nombre}%0A
+📞 Teléfono: ${telefono}%0A
+📍 Dirección: ${direccion}%0A
+🛒 *Productos:*%0A${listaProductos}%0A
+💰 *Total del pedido:* $${total.toLocaleString()}`;
+
+    const numeroWhatsApp = "573195057191"; // tu número
+    const url = `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
+    window.open(url, '_blank');
+  });
+</script>
+
 </body>
 </html>
 
