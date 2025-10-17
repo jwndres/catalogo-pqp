@@ -197,5 +197,60 @@ header {
   margin-left: 10px;
 }
 
+
+
+/* 🛒 Carrito actual movido arriba a la derecha */
+.carrito-container {
+  position: fixed;        /* Fijo en la pantalla */
+  top: 20px;              /* Espaciado desde arriba */
+  right: 20px;            /* Espaciado desde la derecha */
+  background: white;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  width: 260px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  z-index: 10000;
+  text-align: left;
+}
+
+.carrito-container h3 {
+  margin: 0;
+  font-size: 18px;
+  text-align: center;
+  color: #111827;
+}
+
+.carrito-container ul {
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.carrito-container p {
+  font-weight: bold;
+  color: #16a34a;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.carrito-container button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 15px;
+}
+
+.carrito-container button:hover {
+  background: #1e40af;
+}
+
+
 ;
 
