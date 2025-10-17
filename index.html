@@ -594,6 +594,8 @@
         total -= carrito[index].precio;
         carrito.splice(index, 1);
         actualizarCarrito();
+        
+
       });
     });
   }
@@ -606,11 +608,42 @@
       const precioTexto = card.querySelector('.price').textContent;
       const precio = obtenerPrecio(precioTexto);
 
+      
+
       carrito.push({ titulo, precio });
       total += precio;
       actualizarCarrito();
+
+       //  Efecto de vibración del carrito al agregar producto
+    const carritoContainer = document.querySelector('.carrito-container');
+    carritoContainer.classList.add('carrito-vibrar');
+    setTimeout(() => carritoContainer.classList.remove('carrito-vibrar'), 400);
+
+    // Función para mostrar mensaje emergente
+function mostrarAlerta(mensaje) {
+  const alerta = document.createElement('div');
+  alerta.className = 'alerta';
+  alerta.textContent = mensaje;
+  document.body.appendChild(alerta);
+
+  // mostrar animación
+  setTimeout(() => alerta.classList.add('mostrar'), 100);
+
+  // ocultar y eliminar después de 2 segundos
+  setTimeout(() => {
+    alerta.classList.remove('mostrar');
+    setTimeout(() => alerta.remove(), 400);
+  }, 2000);
+}
+
+// ✅ Mensaje emergente
+    mostrarAlerta("✅ Producto agregado al carrito");
+
+
     });
   });
+
+  
 
   // Finalizar pedido
   document.getElementById('finalizarPedido').addEventListener('click', () => {

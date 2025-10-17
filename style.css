@@ -249,6 +249,130 @@ header {
 
 .carrito-container button:hover {
   background: #1e40af;
+} 
+
+
+
+/* ✨ Efecto flotante y animación del carrito */
+.carrito-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 16px;
+  width: 260px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  z-index: 10000;
+  text-align: left;
+  animation: aparecerCarrito 0.6s ease-out;
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carrito-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes aparecerCarrito {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ✨ Efecto animado para el botón de Finalizar pedido */
+#finalizarPedido {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+#finalizarPedido::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-20deg);
+  transition: left 0.4s ease;
+}
+
+#finalizarPedido:hover::before {
+  left: 100%;
+}
+
+#finalizarPedido:hover {
+  transform: scale(1.05);
+  background: #1e90ff;
+  box-shadow: 0 0 10px rgba(30, 144, 255, 0.5);
+}
+
+
+/* 💫 Animación de entrada del carrito */
+@keyframes slideInCarrito {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.carrito-container {
+  animation: slideInCarrito 0.8s ease-out;
+}
+
+
+/* 💥 Animación de vibración del carrito cuando se agrega un producto */
+@keyframes shakeCarrito {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.carrito-vibrar {
+  animation: shakeCarrito 0.4s ease;
+}
+
+
+
+/* ✅ Mensaje emergente centrado */
+.alerta {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: #16a34a;
+  color: white;
+  padding: 16px 28px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 9999;
+}
+
+.alerta.mostrar {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* 🚨 Alerta roja para producto eliminado */
+.alerta.eliminado {
+  background: #dc2626; /* rojo */
 }
 
 
