@@ -299,7 +299,7 @@
       <div class="card">
         <img src="img/limpiapisos lavanda 123 lavanda 1 litro.jpg" alt="limpiapisos lavanda 123 lavanda 1 litro">
         <div class="title">Limpiapisos lavanda 123 lavanda 1 litro</div>
-        <div class="price">$ 5.000 COP</div>
+        <div class="price">$ 6.000 COP</div>
         <button class="btn">Agregar</button>
       </div>
       
@@ -594,6 +594,8 @@
         total -= carrito[index].precio;
         carrito.splice(index, 1);
         actualizarCarrito();
+        mostrarAlerta("❌ Producto eliminado del carrito");
+
         
 
       });
