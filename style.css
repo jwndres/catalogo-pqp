@@ -376,5 +376,67 @@ header {
 }
 
 
+
+
+/* imagen grande con descripcion */
+
+/* --- MODAL PARA VER IMAGEN GRANDE --- */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    max-height: 85%;     /* NUEVO: evita que se salga de la pantalla */
+    overflow-y: auto;    /* NUEVO: habilita scroll si es necesario */
+    border-radius: 10px;
+    text-align: center;
+    animation: aparecer 0.3s ease;
+}
+
+@keyframes aparecer {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.close-btn {
+    margin-top: 15px;
+    background: #ff4444;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
 ;
 

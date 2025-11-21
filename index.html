@@ -17,14 +17,16 @@
   <main class="container">
     <div class="grid">
       <div class="card">
-        <img src="img/alcohol_glicerinado_pqp_1_litro.jpg" alt="alcohol glicerinado pqp 1 litro">
+        <img src="img/alcohol_glicerinado_pqp_1_litro.jpg" alt="alcohol glicerinado pqp 1 litro" onclick="verProducto('img/alcohol_glicerinado_pqp_1_litro.jpg', 'Alcohol glicerinado pqp 1 litro', '14.000 COP', 'Sirve para desinfectar manos y superficies eliminando bacterias y virus. Contiene glicerina que evita resequedad y protege la piel. Secado rápido y no pegajoso. Ideal para hogares, negocios y uso constante.')">
+        
         <div class="title">Alcohol glicerinado pqp 1 litro</div>
         <div class="price">$ 14.000 COP</div>
         <button class="btn">Agregar</button>
       </div>
 
       <div class="card">
-        <img src="img/alcohol glicerinado pqp 4 litros.jpg" alt="alcohol glicerinado pqp 4 litros">
+        <img src="img/alcohol glicerinado pqp 4 litros.jpg" alt="alcohol glicerinado pqp 4 litros" onclick="verProducto('img/alcohol glicerinado pqp 4 litros.jpg', 'Alcohol glicerinado pqp 4 litros', '46.800 COP', 'Fórmula Hidratante y Desinfectante. Ideal para la higiene de manos sin necesidad de enjuague. Contiene glicerina para evitar la resequedad de la piel, ofreciendo una desinfección efectiva.')">
+
         <div class="title">Alcohol glicerinado pqp 4 litros</div>
         <div class="price">$ 46.800 COP</div>
         <button class="btn">Agregar</button>
@@ -258,10 +260,11 @@
       </div>
       
       <div class="card">
-        <img src="img/lavaloza 123 con aloe 4 litros.jpg" alt="lavaloza 123 con aloe 4 litros">
+        <img src="img/lavaloza 123 con aloe 4 litros.jpg" alt="lavaloza 123 con aloe 4 litros" onclick="verProducto('img/lavaloza 123 con aloe 4 litros.jpg', 'Lavaloza 123 con aloe 4 litros', '26.000 COP', 'Detergente líquido para platos con alto poder desengrasante, tecnología Odortec para eliminar olores y aloe vera que protege las manos. Es biodegradable, antibacterial y tiene un agradable aroma a limón, ideal para el lavado manual de utensilios de cocina.')">
         <div class="title">Lavaloza 123 con aloe 4 litros</div>
         <div class="price">$  26.000 COP</div>
         <button class="btn">Agregar</button>
+        
       </div>
       
       <div class="card">
@@ -372,7 +375,7 @@
       <div class="card">
         <img src="img/suavizante ultrex floral 4 litros.jpg" alt="suavizante ultrex floral 4 litros">
         <div class="title">Suavizante ultrex floral 4 litros</div>
-        <div class="price">$ 23.000 COP</div>
+        <div class="price">$ 25.000 COP</div>
         <button class="btn">Agregar</button>
       </div>
       
@@ -697,6 +700,36 @@ function mostrarAlerta(mensaje) {
     const url = `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
     window.open(url, '_blank');
   });
+</script>
+
+/* para ver la imagen grande y descripcion*/ 
+
+
+<!-- MODAL PARA VER PRODUCTO -->
+<div id="modalProducto" class="modal">
+    <div class="modal-content">
+        <img id="modalImagen" src="">
+        <h2 id="modalNombre"></h2>
+        <p id="modalPrecio"></p>
+        <p id="modalDescripcion"></p>
+
+        <button class="close-btn" onclick="cerrarModal()">Cerrar</button>
+    </div>
+</div>
+
+<script>
+function verProducto(imagen, nombre, precio, descripcion) {
+    document.getElementById('modalImagen').src = imagen;
+    document.getElementById('modalNombre').innerText = nombre;
+    document.getElementById('modalPrecio').innerText = "Precio: $" + precio;
+    document.getElementById('modalDescripcion').innerText = descripcion;
+
+    document.getElementById('modalProducto').style.display = 'flex';
+}
+
+function cerrarModal() {
+    document.getElementById('modalProducto').style.display = 'none';
+}
 </script>
 
 </body>
