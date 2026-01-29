@@ -659,47 +659,6 @@ function mostrarAlerta(mensaje) {
     });
   });
 
-  const carrito = document.querySelector('.carrito-container');
-
-let isDragging = false;
-let startX, startY;
-let currentX = 0, currentY = 0;
-
-// posición inicial
-const rect = carrito.getBoundingClientRect();
-currentX = rect.left;
-currentY = rect.top;
-
-carrito.addEventListener('touchstart', e => {
-  const touch = e.touches[0];
-  isDragging = true;
-  startX = touch.clientX - currentX;
-  startY = touch.clientY - currentY;
-});
-
-carrito.addEventListener('touchmove', e => {
-  if (!isDragging) return;
-  e.preventDefault();
-
-  const touch = e.touches[0];
-  currentX = touch.clientX - startX;
-  currentY = touch.clientY - startY;
-
-  // límites de pantalla
-  const maxX = window.innerWidth - carrito.offsetWidth;
-  const maxY = window.innerHeight - carrito.offsetHeight;
-
-  currentX = Math.max(0, Math.min(currentX, maxX));
-  currentY = Math.max(0, Math.min(currentY, maxY));
-
-  carrito.style.left = currentX + 'px';
-  carrito.style.top = currentY + 'px';
-  carrito.style.right = 'auto';
-});
-
-carrito.addEventListener('touchend', () => {
-  isDragging = false;
-});
   
 
   // Finalizar pedido

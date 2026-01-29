@@ -217,15 +217,7 @@ header {
   text-align: left;
   backdrop-filter: blur(6px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  touch-action: none;
-  user-select: none;
-  cursor: grab;
 }
-
-.carrito-container:active {
-  cursor: grabbing;
-}
-
 .carrito-container h3 {
   margin: 0;
   font-size: 18px;
