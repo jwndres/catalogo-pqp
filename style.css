@@ -157,7 +157,7 @@ header {
   padding: 20px;
   display: flex;
   justify-content: center;
-  z-index: 999;
+  z-index: 1000;
 }
 
 .form-contenido {
@@ -199,19 +199,31 @@ header {
 
 
 
-/* 🛒 Carrito actual movido arriba a la derecha */
+
+
+
+/* ✨ Efecto flotante y animación del carrito */
 .carrito-container {
-  position: fixed;        /* Fijo en la pantalla */
-  top: 20px;              /* Espaciado desde arriba */
-  right: 20px;            /* Espaciado desde la derecha */
-  background: white;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
   border: 2px solid #ccc;
-  border-radius: 10px;
-  padding: 15px;
+  border-radius: 12px;
+  padding: 16px;
   width: 260px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  z-index: 10000;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  z-index: 900;
   text-align: left;
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  touch-action: none;
+  user-select: none;
+  cursor: grab;
+}
+
+.carrito-container:active {
+  cursor: grabbing;
 }
 
 .carrito-container h3 {
@@ -253,23 +265,7 @@ header {
 
 
 
-/* ✨ Efecto flotante y animación del carrito */
-.carrito-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: rgba(255, 255, 255, 0.95);
-  border: 2px solid #ccc;
-  border-radius: 12px;
-  padding: 16px;
-  width: 260px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-  z-index: 10000;
-  text-align: left;
-  animation: aparecerCarrito 0.6s ease-out;
-  backdrop-filter: blur(6px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+
 
 .carrito-container:hover {
   transform: translateY(-3px);
@@ -362,7 +358,7 @@ header {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
   opacity: 0;
   transition: opacity 0.4s ease, transform 0.4s ease;
-  z-index: 9999;
+  z-index: 1100;
 }
 
 .alerta.mostrar {
@@ -433,11 +429,11 @@ header {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 999;
+  z-index: 800;
 }
 
 
 
 
-;
+
 
