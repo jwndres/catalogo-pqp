@@ -12,6 +12,7 @@
   <header>
      <img src="img/logo.jpg" alt="Logo PQP" class="logo">
   <h1>Productos PQP</h1>
+  <input type="text" id="buscador" placeholder="Buscar producto..." onkeyup="buscarProducto()" class="buscador">
   </header>
 
   <main class="container">
@@ -331,15 +332,15 @@
       </div>
 
       <div class="card">
-        <img src="img/detergente-liquido-alcalino-clorado-pqp-4l" alt="detergente liquido alcalino clorado pqp 4 lts" onclick="verProducto('img/detergente-liquido-alcalino-clorado-pqp-4l.jpg', 'Detergente liquido alcalino clorado pqp 4 lts', '50.000 COP', 'Máximo Poder de Desinfección y Blanqueo. Solución concentrada de Hipoclorito de Sodio. Elimina el 99.9% de gérmenes y bacterias, y es esencial para blanquear ropa blanca y desinfectar áreas de alto tráfico')"> 
+        <img src="img/detergente-liquido-alcalino-clorado-pqp-4l.jpg" alt="detergente liquido alcalino clorado pqp 4 lts" onclick="verProducto('img/detergente-liquido-alcalino-clorado-pqp-4l.jpg', 'Detergente liquido alcalino clorado pqp 4 lts', '50.000 COP', 'Máximo Poder de Desinfección y Blanqueo. Solución concentrada de Hipoclorito de Sodio. Elimina el 99.9% de gérmenes y bacterias, y es esencial para blanquear ropa blanca y desinfectar áreas de alto tráfico')"> 
         <div class="title">Detergente liquido alcalino clorado pqp 4 lts</div>
         <div class="price">$ 50.000 COP</div>
         <button class="btn">Agregar</button>
       </div>
 
       <div class="card">
-        <img src="img/Detergente-Liquido-Alcalino-Clorado-Industria-20L.jpg" alt="detergente liquido alcalino clorado pqp 4 lts" onclick="verProducto('img/detergente-liquido-alcalino-clorado-pqp-4l.jpg', 'Detergente liquido alcalino clorado pqp 4 lts', '227.000 COP', 'Máximo Poder de Desinfección y Blanqueo. Solución concentrada de Hipoclorito de Sodio. Elimina el 99.9% de gérmenes y bacterias, y es esencial para blanquear ropa blanca y desinfectar áreas de alto tráfico')"> 
-        <div class="title">Detergente liquido alcalino clorado pqp 4 lts</div>
+        <img src="img/Detergente-Clorado-Alcalino-PQP-Pro-20Litros.jpg" alt="detergente liquido alcalino clorado pqp 20 lts" onclick="verProducto('img/detergente-liquido-alcalino-clorado-pqp-20l.jpg', 'Detergente liquido alcalino clorado pqp 20 lts', '227.000 COP', 'Máximo Poder de Desinfección y Blanqueo. Solución concentrada de Hipoclorito de Sodio. Elimina el 99.9% de gérmenes y bacterias, y es esencial para blanquear ropa blanca y desinfectar áreas de alto tráfico')"> 
+        <div class="title">Detergente liquido alcalino clorado pqp 20 lts</div>
         <div class="price">$ 227.000 COP</div>
         <button class="btn">Agregar</button>
       </div>
@@ -752,6 +753,27 @@ function cerrarModal() {
        alt="WhatsApp" width="60" height="60">
 </a>
 
+#Buscar producto
+<script>
+function buscarProducto() {
+
+let input = document.getElementById("buscador").value.toLowerCase();
+let productos = document.getElementsByClassName("card");
+
+for (let i = 0; i < productos.length; i++) {
+
+let titulo = productos[i].getElementsByClassName("title")[0].innerText.toLowerCase();
+
+if (titulo.includes(input)) {
+productos[i].style.display = "block";
+} else {
+productos[i].style.display = "none";
+}
+
+}
+
+}
+</script>
 
 </body>
 </html>
