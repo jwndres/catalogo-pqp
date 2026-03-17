@@ -22,9 +22,8 @@ header {
 
 /* 🛒 Grid de productos */
 .grid { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
-  gap: 14px; 
+  grid-template-columns: repeat(2, 1fr); /* ✅ 2 productos */
+    gap: 10px;
 }
 
 /* 🧾 Tarjetas */
