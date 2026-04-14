@@ -731,12 +731,18 @@ function mostrarAlerta(mensaje) {
     }
 
     const listaProductos = carrito.map(p => `- ${p.titulo} ($${p.precio.toLocaleString()})`).join('%0A');
-    const mensaje = `📦 *Nuevo pedido PQP*%0A
+   const mensaje = `📦 *Nuevo pedido PQP*%0A
 👤 Nombre: ${nombre}%0A
 📞 Teléfono: ${telefono}%0A
 📍 Dirección: ${direccion}%0A
 🛒 *Productos:*%0A${listaProductos}%0A
-💰 *Total del pedido:* $${total.toLocaleString()}`;
+💰 *Total del pedido:* $${total.toLocaleString()}%0A%0A
+
+💳 *Información de pago:*%0A
+Para continuar con tu pedido, puedes realizar el pago a la cuenta de ahorros Bancolombia *91287112306*.%0A
+Una vez realizado, por favor envíanos el comprobante por este medio 📩.%0A
+Ten en cuenta que el pedido se gestiona una vez se confirme el pago.%0A
+¡Gracias por tu compra y confianza! 🙌`;
 
     const numeroWhatsApp = "573195057191"; // tu número
     const url = `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
