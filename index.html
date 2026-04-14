@@ -290,9 +290,9 @@
       </div>
       
       <div class="card">
-        <img src="img/limpiador con vinagre y bicarbonato 123 500 ml.jpg" alt="limpiador con vinagre y bicarbonato 123 500 ml" onclick="verProducto('img/limpiador con vinagre y bicarbonato 123 500 ml.jpg', 'Limpiador con vinagre y bicarbonato 123 500 ml', '5.000 COP', 'Limpiador multiusos con vinagre y bicarbonato, ideal para eliminar manchas y desinfectar superficies. Su fórmula combina ingredientes naturales para una limpieza efectiva y segura.')">
+        <img src="img/limpiador con vinagre y bicarbonato 123 500 ml.jpg" alt="limpiador con vinagre y bicarbonato 123 500 ml" onclick="verProducto('img/limpiador con vinagre y bicarbonato 123 500 ml.jpg', 'Limpiador con vinagre y bicarbonato 123 500 ml', '6.000 COP', 'Limpiador multiusos con vinagre y bicarbonato, ideal para eliminar manchas y desinfectar superficies. Su fórmula combina ingredientes naturales para una limpieza efectiva y segura.')">
         <div class="title">Limpiador con vinagre y bicarbonato 123 500 ml</div>
-        <div class="price">$ 5.000 COP</div>
+        <div class="price">$ 6.000 COP</div>
         <button class="btn">Agregar</button>
       </div>
       
@@ -737,6 +737,12 @@ function mostrarAlerta(mensaje) {
 📍 Dirección: ${direccion}%0A
 🛒 *Productos:*%0A${listaProductos}%0A
 💰 *Total del pedido:* $${total.toLocaleString()}`;
+
+💳 *Información de pago:*
+Para continuar con tu pedido, puedes realizar el pago a la cuenta de ahorros Bancolombia *91287112306*. 
+Una vez realizado, por favor envíanos el comprobante por este medio 📩. 
+Ten en cuenta que el pedido se realiza una vez se confirme el pago. 
+¡Gracias por tu compra y confianza! 🙌`;
 
     const numeroWhatsApp = "573195057191"; // tu número
     const url = `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
