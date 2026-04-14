@@ -738,12 +738,6 @@ function mostrarAlerta(mensaje) {
 🛒 *Productos:*%0A${listaProductos}%0A
 💰 *Total del pedido:* $${total.toLocaleString()}`;
 
-💳 *Información de pago:*
-Para continuar con tu pedido, puedes realizar el pago a la cuenta de ahorros Bancolombia *91287112306*. 
-Una vez realizado, por favor envíanos el comprobante por este medio 📩. 
-Ten en cuenta que el pedido se realiza una vez se confirme el pago. 
-¡Gracias por tu compra y confianza! 🙌`;
-
     const numeroWhatsApp = "573195057191"; // tu número
     const url = `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
     window.open(url, '_blank');
